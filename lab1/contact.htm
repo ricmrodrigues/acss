@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Labs 1 - Question 5</title>
+	</head>
+	<body>
+		<form>
+			<div>
+				<span>First Name</span><input id="firstName" required type="text"/>
+			</div>
+			<div>
+				<span>Last Name</span><input id="lastName" required type="text"/>
+			</div>
+			<div>
+				<span>Email Address</span><input id="emailAddress" type="email" required pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}"/>
+			</div>	
+			<div>
+				<span>Phone Number</span><input id="phoneNumber" type="text" required pattern="(\+?\d[- .]*){7,13}"/>
+			</div>					
+			<input type="submit" value="Send"/>
+		</form>
+		<script type="text/javascript" src="contact.js"></script>
+	</body>
+</html>
