@@ -22,11 +22,12 @@ function tryAdd(longestN, n, limit) {
     } else { //calculate if new item fits
         var pos = doesItFit(longestN, n);
         if (pos) {
-            longestN.splice(pos, 1, n);
+            //replace the one in position pos, and add n
+            longestN.splice(pos, 1, n); 
             longestN.sort(function(a, b) {
-                return b.length - a.length; //sort desc
+                //sort desc so the last is always the smallest
+                return b.length - a.length; 
             });
-            //pop the position and push
         }        
     }        
 }
@@ -45,7 +46,7 @@ function doesItFit(longestN, n) {
 }
 
 var lines = [
-    "3",
+    "2",
     "Hello World",
     "",
     "CodeEval",
