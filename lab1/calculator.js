@@ -13,29 +13,27 @@
 		}		
 	}	
 	function result() {
-		if (!resultShown) {
+		if (!resultShown && operator1 && operator2) {
 			resultShown = true;
-			if (operator1 && operator2) {
-				switch (operationToDo) {
-					case "+":{
-						res = parseInt(operator1) + parseInt(operator2);
-						break;
-					}
-					case "-":{
-						res = parseInt(operator1) - parseInt(operator2);
-						break;
-					}
-					case "*":{
-						res = parseInt(operator1) * parseInt(operator2);
-						break;
-					}
-					case "/":{
-						res = parseInt(operator1) / parseInt(operator2);
-						break;
-					}												
+			switch (operationToDo) {
+				case "+":{
+					res = parseInt(operator1) + parseInt(operator2);
+					break;
 				}
-				operation.value += " = " + res;
+				case "-":{
+					res = parseInt(operator1) - parseInt(operator2);
+					break;
+				}
+				case "*":{
+					res = parseInt(operator1) * parseInt(operator2);
+					break;
+				}
+				case "/":{
+					res = parseInt(operator1) / parseInt(operator2);
+					break;
+				}												
 			}
+			operation.value += " = " + res;			
 		}
 	}	
 	function clear() {
