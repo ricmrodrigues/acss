@@ -1,4 +1,4 @@
-//http://jsfiddle.net/5vbWx/
+//http://jsfiddle.net/5vbWx/1/
 
 function isPrime (n)
 {
@@ -6,7 +6,7 @@ function isPrime (n)
 
     //An integer is prime if it is not divisible
     //by any prime less than or equal to its square root
-    var sqrt = (int)Math.sqrt (n);
+    var sqrt = Math.sqrt (n);
 
     for (var i = 2; i <= sqrt; i++) {
         if (n % i == 0) {
