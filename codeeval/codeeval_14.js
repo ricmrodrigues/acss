@@ -1,28 +1,39 @@
+//http://jsfiddle.net/5CHgA/2/
+
 function allOptions(str) {
     str = str.split('');
     var len = str.length,
         results = [];
-    
-    for (var i=0; i<len; i++) {
-        var fixed = str[i],
-            innerArr = str.slice(i, i+1),
-            current = [];
-        current.push(fixed);
         
-        console.log(innerArr);
-        console.log("fixed = " + fixed);
-        
-        for (var x=0; x<str.length; x++) {
-            if (x !== i) {
-                current.push(str[x]);
+    if (len === 2) {
+        //terminate recursion
+        results.push(str.join(''));
+        var reversed = str.reverse().join('');
+        //if we have the same char multiple times, this is gonna happen
+        if (results.indexOf(reversed) === -1) {
+            results.push(reversed);
+        }
+    } else {
+        for (var i=0;i<len; i++) {
+            var arr = str.slice(0), //clone array
+                item = arr.splice(i, 1),
+                res = allOptions(arr.join('')); //all options except first char
+
+            //concat first char with all options
+            for (var x in res) {
+                var r = item + res[x];
+                //if we have the same char multiple times, this is gonna happen
+                if (results.indexOf(r) === -1) {
+                    results.push(r);
+                }
             }
         }
-        console.log("current = " + current.join(''));
-        results.push(current.join(''));
     }
-    
+
     return results.sort(function(a, b) {
-        return a > b;
+        if (a < b) return -1;
+        if (a > b) return 1;
+        return 0;
     });
 }
 
