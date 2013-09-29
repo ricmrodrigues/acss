@@ -1,4 +1,4 @@
-//http://jsfiddle.net/8qt57/1/
+//http://jsfiddle.net/8qt57/3/
 
 function getBiggestSum(numbers) {        
     //remove leading and trailing negative numbers

@@ -7,11 +7,11 @@ function firstNonRepeatedChar(strings) {
 		    string = strings[i];
 		for (var x = 0; x < string.length; x++) {
 			var key = string[x];
-			if (~noRepeat.indexOf(key)) {
+			if (~noRepeat.indexOf(key)) { //if char exists is repeat, filter it out
 				noRepeat = noRepeat.filter(function(item) {
 					return item !== key;
 				});
-			} else {
+			} else { //else add it as non repeated
 				noRepeat.push(key);
 			}			
 		}
