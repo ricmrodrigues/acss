@@ -1,5 +1,7 @@
-//http://jsfiddle.net/2ntKA/
+//http://stackoverflow.com/questions/4152931/javascript-inheritance-call-super-constructor-or-use-prototype-chain
+//http://stackoverflow.com/questions/3079887/javascript-inheritance-with-object-create
 
+//using prototype
 function Vehicle() {    
     console.log("vehicle ctor");
 }
@@ -29,3 +31,18 @@ var x = new Car();
 alert(x.topSpeed);
 
 console.log(x instanceof Car);
+
+
+
+//using Object.create() => constructors are lost
+var A = function() { };
+A.prototype.x = 10;
+A.prototype.say = function() { alert(this.x) };
+
+var a = new A();
+a.say(); //alerts 10
+
+var b = Object.create(a);
+b.say(); //alerts 10
+b.x = 'hello';
+b.say(); //alerts 'hello'
