@@ -1,4 +1,4 @@
-//http://jsfiddle.net/LKeLk/
+//http://jsfiddle.net/LKeLk/1/
 
 function evaluatePrefix(expression) {
 	var validOperations = ["+", "*", "/"],
@@ -7,15 +7,14 @@ function evaluatePrefix(expression) {
 		numbers = [];
 
 	do {
-		//join because splice returns arr
-		operations.push(items.splice(0, 1).join());
+		operations.push(items.shift());
 	} while (~validOperations.indexOf(items[0]));
 	numbers = items; //only numbers remaining
 
 	do {
 		var operation = operations.pop(),
-			operator1 = parseInt(numbers.splice(0, 1)),
-			operator2 = parseInt(numbers.splice(0, 1));
+			operator1 = parseInt(numbers.shift()),
+			operator2 = parseInt(numbers.shift());
 		//insert the result of the operation back to the beginning of the array
 		//to be processed by next operation
 		numbers.splice(0, 0, doOperation(operator1, operator2, operation));
