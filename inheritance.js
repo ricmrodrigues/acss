@@ -46,3 +46,16 @@ var b = Object.create(a);
 b.say(); //alerts 10
 b.x = 'hello';
 b.say(); //alerts 'hello'
+
+
+
+
+//setters and getters
+Field.prototype = {
+    get value(){
+        return this._value;
+    },
+    set value(val){
+        this._value = val;
+    }
+};
